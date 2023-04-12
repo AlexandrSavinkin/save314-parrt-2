@@ -182,7 +182,7 @@
 
                                                             <label><b>Role</b></label>
                                                             <label for="roles1"></label><select multiple class="form-control form-control-sm"
-                                                                                                id="roles1" th:name="roles" size="3">
+                                                                                                id="roles1" th:name="roles" size="3" required>
                                                                 <option th:each="role : ${allRoles}"
                                                                         th:text="${role.name.replaceFirst('ROLE_', '')}"
                                                                         th:value="${role.id}"
