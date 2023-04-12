@@ -175,21 +175,21 @@
                                                             <div class="position-relative">
                                                                 <div class="position-absolute top-0 start-50 translate-middle">
                                                                     <input class="form-control bg-light" type="password"
-                                                                           th:value="${user.password}"
+
                                                                            th:name="password" id="password">
                                                                 </div>
                                                             </div>
 
-
-                                                            <strong>Roles</strong>
-                                                            <select multiple class="form-control form-control-sm"
-                                                                    id="roles1" th:name="roles" size="3" required>
+                                                            <label><b>Role</b></label>
+                                                            <label for="roles1"></label><select multiple class="form-control form-control-sm"
+                                                                                                id="roles1" th:name="roles" size="3">
                                                                 <option th:each="role : ${allRoles}"
-
-                                                                        th:text="${role.name.replaceFirst('ROLE_', '')}" th:value="${role.id}"
+                                                                        th:text="${role.name.replaceFirst('ROLE_', '')}"
+                                                                        th:value="${role.id}"
                                                                         class="m-2"/>
-                                                                </th:block>
+                                                                </option>
                                                             </select>
+
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -204,6 +204,7 @@
                                         </form>
                                     </td>
                                     <td>
+
                                         <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                     th:data-bs-target="${'#delete'+user.getId()}">
@@ -293,7 +294,7 @@
                                                                 <option th:each="role : ${allRoles}"
                                                                         th:text="${role.name}"
                                                                         th:value="${role.id}"
-                                                                        th:field="*{allRoles}">
+                                                                        th:field="*{allRoles}" disabled>
                                                                 </option>
                                                             </select>
                                                         </div>
@@ -303,7 +304,6 @@
                                                             </button>
                                                             <button type="submit" class="btn btn-primary">Delete user
                                                             </button>
-
                                                         </div>
                                                     </div>
                                                 </div>
